@@ -1,0 +1,46 @@
+server:
+  port: 28080
+
+jwt:
+  # openssl rand -base64 256
+  secret: gx4SN/4gh6QPvLfVWCW8Aoo4l2n66d2338IwXyu1koDT1W94XS35OZJPYkA2IIMMgmlz96LCHSNc8jLYuzwB1IreKOZz2TZhsWODfjHAS9bYlduniCUSuSPZ5/OP15O63fn1kN1N5w64frpyWcWbTtiCgLMkJpnfjmqFMAr7fgcOGyt2rmunvFYni9T78Q4fn/0gpx3qm8zXw3oBbFb1Ge9Wnh1UCSapXd/EzLau3iaXqp9f+8FHmSCo9vbEaRSRMPHdcpnB4WKHKySE/BCNSsWM+kHmHyrAbvKErPCz2XXMnIalUoAtquq03LnmYjrBHyI230VcYEVzGmzLOTsSJw==
+  access_token:
+    expiration: 3600
+  refresh_token:
+    expiration: 604800
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+spring:
+  datasource:
+    url: jdbc:mysql://106.15.126.25:3306/www_abc_com
+    username: www_abc_com
+    password: hfdMfWtpBa
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+
+
+  jackson:
+    #日期格式化
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      #格式化输出
+      indent_output: true
+      #忽略无法转换的对象
+      fail_on_empty_beans: false
+    #设置空如何序列化
+    defaultPropertyInclusion: NON_EMPTY
+    deserialization:
+      #允许对象忽略json中不存在的属性
+      fail_on_unknown_properties: false
+    parser:
+      #允许出现特殊字符和转义符
+      allow_unquoted_control_chars: true
+      #允许出现单引号
+      allow_single_quotes: true
